@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Cockpit.css';
 
@@ -30,6 +31,12 @@ const cockpit = (props) => {
                 onClick={props.clicked}>Toggle Persons</button>
         </div>
     );
+}
+
+cockpit.propTypes = {
+    showPersons: PropTypes.bool,
+    persons: PropTypes.object,
+    clicked: PropTypes.func
 }
 
 export default cockpit;
