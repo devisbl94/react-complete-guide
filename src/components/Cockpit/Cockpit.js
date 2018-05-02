@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './Cockpit.css';
+import Aux from '../../hoc/ReactAux';
 
 const cockpit = (props) => {
     const style = {
@@ -23,19 +24,20 @@ const cockpit = (props) => {
         classes.push('bold');
     }
     return(
-        <div>
-            <h1>Hi, I&apos;m a react app</h1>
+        <Aux>
+            <h1>{ props.appTitle }</h1>
             <p className = { classes.join( ' ' ) }>This is really working!</p>
             <button
                 style={style}
                 onClick={props.clicked}>Toggle Persons</button>
-        </div>
+        </Aux>
     );
 }
 
 cockpit.propTypes = {
+    appTitle: PropTypes.string,
     showPersons: PropTypes.bool,
-    persons: PropTypes.object,
+    persons: PropTypes.array,
     clicked: PropTypes.func
 }
 
